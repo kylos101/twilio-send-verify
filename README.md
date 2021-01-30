@@ -8,7 +8,7 @@ It is outside the scope of this function to provide a mechanism to assert the co
 
 1. Create a Verify service in [Twilio console](https://www.twilio.com/console/verify/services). Document the `Service ID`, you'll need it in step 4.
 
-2. Setup the `AccountSid` and `AuthToken` from Twilio are saved as a secret in Kubernetes
+2. Save the `AccountSid` and `AuthToken` from Twilio as a secret in Kubernetes
 
 ```bash
 # get these from https://www.twilio.com/console
