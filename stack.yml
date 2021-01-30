@@ -1,0 +1,14 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  twilio-send-verify:
+    lang: csharp-httprequest
+    handler: ./twilio-send-verify
+    secrets:      
+    - twilio-creds
+    labels:
+      com.openfaas.scale.zero: false
+    environment:
+      twilio_verify_endpoint: https://verify.twilio.com/v2/Services/<YOUR_VERIFY_SERVICE_ID>/Verifications
