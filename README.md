@@ -64,7 +64,7 @@ Sending such a request may look like this:
 ```python
 # I opted to use async, so Twilio failures don't cause my user update to fail
 url = "http://gateway.openfaas.svc.cluster.local:8080/async-function/twilio-send-verify.openfaas-fn"
-body = {"To": "18606145897", "Channel": "sms"}
+body = {"To": "15551234567", "Channel": "sms"}
 response = requests.post(url, json=body)
 response.raise_for_status()
 ```
