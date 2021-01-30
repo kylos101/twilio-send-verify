@@ -1,22 +1,28 @@
 # twilio-send-verify
 
-A function to send verify requests via [Twilio's Verify API](https://www.twilio.com/docs/verify/api) using [OpenFaaS](https://www.openfaas.com/) on [Kubernetes](https://kubernetes.io/).
+A function to send a verification codes using [Twilio's Verify API](https://www.twilio.com/docs/verify/api) with [OpenFaaS](https://www.openfaas.com/).
 
-It is outside the scope of this function to provide a mechanism to assert the codes delivered to devices by Twilio. I'll post a separate function for that use case.
+It is outside the scope of this function to provide a mechanism to assert the codes delivered to devices by Twilio. I'll post a separate `twilio-check-verify` function for that use case.
 
 ## Usage
 
-This function handles requests to ask Twilio to send a Verify Code via:
+This function handles requests to ask Twilio to send a verification code via:
 
 - sms
 - call
 - email (requires extra setup in Twilio, which is not covered here)
 
+A verification code delivered via SMS may look like:
+
+```
+Your <COOL_APP_NAME> verification code is 123456.
+```
+
 ## A Sample Use Case
 
 Let's pretend you have another function written in Python that does user profile updates, and it handles the following scenario.
 
-Given a request to update a user's profile, when the user has opted-in to receive notifications via SMS, then we want to send them a verification code using SMS.
+Given a request to update a user's profile, when the user update includes opting into receive notifications via SMS, then we want to send a verification code using SMS.
 
 Sending such a request to `twilio-send-verify` may look like this:
 
@@ -62,7 +68,8 @@ functions:
     lang: csharp-httprequest
     handler: ./twilio-send-verify
     secrets:
-      - twilio-creds
+      - twilio-account-sid
+      - twilio-auth-token
     labels:
       com.openfaas.scale.zero: false
     environment:
