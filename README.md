@@ -55,9 +55,9 @@ This function receives a request to ask Twilio to send a Verify code to a device
 
 ## A Sample Use Case
 
-Let's pretend you have another function written in Python to manage user profiles.
+Let's pretend you have another function written in Python that does user profiles updates.
 
-Depending on the update (maybe the user opted-in to receive notifications via SMS), we may want to start a workflow to verify the mobile number.
+Depending on the content in the update (maybe the user opted-in to receive notifications via SMS), we may want to start a workflow to send a verification code to the user's mobile number via this `twilio-verify` function.
 
 Sending such a request may look like this:
 
@@ -68,3 +68,5 @@ body = {"To": "18606145897", "Channel": "sms"}
 response = requests.post(url, json=body)
 response.raise_for_status()
 ```
+
+This will result in the end-user receiving a message with a verification code from Twilio (you can customize the message in Twilio).
