@@ -88,7 +88,7 @@ namespace Function
         {
             string accountSid;
             string authToken;
-            using (var reader = File.OpenText("/var/openfaas/secrets/accountSid"))
+            using (var reader = File.OpenText("/var/openfaas/secrets/twilio-account-sid"))
             {
                 var text = await reader.ReadToEndAsync();
                 if (string.IsNullOrWhiteSpace(text))
@@ -98,7 +98,7 @@ namespace Function
                 accountSid = text;
             }
 
-            using (var reader = File.OpenText("/var/openfaas/secrets/authToken"))
+            using (var reader = File.OpenText("/var/openfaas/secrets/twilio-auth-token"))
             {
                 var text = await reader.ReadToEndAsync();
                 if (string.IsNullOrWhiteSpace(text))
