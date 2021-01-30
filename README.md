@@ -57,7 +57,7 @@ This function receives a request to ask Twilio to send a Verify code to a device
 
 Let's pretend you have another function written in Python that does user profiles updates.
 
-Depending on the content in the update (maybe the user opted-in to receive notifications via SMS), we may want to start a workflow to send a verification code to the user's mobile number via this `twilio-verify` function.
+Depending on the content in the update (maybe the user opted-in to receive notifications via SMS), we may want to start a workflow to send a verification code to the user's mobile number via this `twilio-send-verify` function.
 
 Sending such a request may look like this:
 
