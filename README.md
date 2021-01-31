@@ -24,7 +24,7 @@ Let's pretend you have another function written in Python that does user profile
 
 Given a request to update a user's profile, when the profile update includes opting into receive notifications via SMS, then we want to send a verification code using SMS to the user's phone.
 
-Sending such a request to `twilio-send-verify` to send a verification code may look like:
+Sending a request to `twilio-send-verify` to ask Twilio to send a verification code may look like:
 
 ```python
 # I opted to use async, so a failure on the Twilio side doesn't cause my user update to fail
