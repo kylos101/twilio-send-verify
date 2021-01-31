@@ -2,7 +2,7 @@
 
 A function to send a verification codes using [Twilio's Verify API](https://www.twilio.com/docs/verify/api) with [OpenFaaS](https://www.openfaas.com/).
 
-It is outside the scope of this function to provide a mechanism to assert the codes delivered to devices by Twilio. I'll post a separate `twilio-check-verify` function for that use case.
+Refer to [twilio-check-verify](https://github.com/kylos101/twilio-check-verify) to check verification codes.
 
 ## Usage
 
