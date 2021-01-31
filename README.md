@@ -4,15 +4,15 @@ A function to send a verification codes using [Twilio's Verify API](https://www.
 
 Refer to [twilio-check-verify](https://github.com/kylos101/twilio-check-verify) to check verification codes.
 
-## Usage
+## Overview
 
-This function handles requests to ask Twilio to send a verification code via:
+This function requests Twilio to send a Verification Code via a channel:
 
 - sms
 - call
 - email (requires extra setup in Twilio, which is not covered here)
 
-A verification code delivered via SMS may look like:
+When the verification code arrives (which is super fast) it looks like this:
 
 ```
 Your <COOL_APP_NAME> verification code is 123456.
@@ -22,9 +22,9 @@ Your <COOL_APP_NAME> verification code is 123456.
 
 Let's pretend you have another function written in Python that does user profile updates, and it handles the following scenario.
 
-Given a request to update a user's profile, when the user update includes opting into receive notifications via SMS, then we want to send a verification code using SMS.
+Given a request to update a user's profile, when the profile update includes opting into receive notifications via SMS, then we want to send a verification code using SMS to the user's phone.
 
-Sending such a request to `twilio-send-verify` may look like this:
+Sending such a request to `twilio-send-verify` to send a verification code may look like:
 
 ```python
 # I opted to use async, so a failure on the Twilio side doesn't cause my user update to fail
